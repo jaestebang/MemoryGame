@@ -6,11 +6,10 @@ import { Game } from './classes/game';
 import { Player } from './classes/player';
 
 //Crea juego
-const game = new Game(4,
+const game = new Game(6,
     [
-        new Player('Cristian'),
-        new Player('Johan'),
-        new Player('Yuna')
+        new Player('Jugador 1'),
+        new Player('Jugador 2'),
     ]
 );
 

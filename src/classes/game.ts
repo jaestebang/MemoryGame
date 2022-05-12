@@ -89,7 +89,7 @@ export class Game extends Memory {
             //Imágen Front
             img = document.createElement('img');
             img.className = 'front-face';
-            img.style.cssText = `mask-image: url(../assets/icons/${c.icon}.svg);
+            img.style.cssText = `mask-image: url(/assets/icons/${c.icon}.svg);
                                 mask-repeat: no-repeat;
                                 mask-origin: content;
                                 mask-size: contain;
