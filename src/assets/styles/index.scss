@@ -19,21 +19,29 @@ body {
     display: block;
     background: transparent;
 
+    .game.disabled{
+        pointer-events: none;
+    }
+
     .results-container {
-        top: 0;
-        position: fixed;
+        /* top: 0; */
+        /* position: fixed; */
         display: flex;
         flex-direction: column;
+        width: 100vw;
+        left: 0;
+        right: 0;
+        align-items: center;
 
-        .active{
+        .active {
             color: red;
         }
     }
 
     .memory-game {
         align-content: flex-start;
-        width: 640px;
-        height: 640px;
+        width: calc(64px * var(--size));
+        height: calc(64px * var(--size));
         margin: auto;
         display: flex;
         flex-wrap: wrap;
@@ -41,13 +49,15 @@ body {
         justify-content: center;
 
         .memory-card {
-            width: calc(12%);
+            //width: calc(12%);
+            width: 64px;
             //border: solid 1px lightsteelblue;
             border-radius: 5px;
             border-bottom: solid 1px rgba(0, 0, 0, .3);
             border-right: solid 1px rgba(0, 0, 0, .3);
             box-shadow: -2px -2px 1px rgba(0, 0, 0, .3);
-            height: calc(12%);
+            //height: calc(12%);
+            height: 64px;
             //margin: 5px;
             position: relative;
             transform: scale(1);

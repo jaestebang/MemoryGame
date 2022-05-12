@@ -64,6 +64,7 @@ export class Game extends Memory {
 
         //Sección principal del juego
         const sectionGame: HTMLElement = document.createElement('section');
+        sectionGame.id = 'game';
         sectionGame.className = 'game';
 
         //Div memory-game
@@ -89,11 +90,11 @@ export class Game extends Memory {
             //Imágen Front
             img = document.createElement('img');
             img.className = 'front-face';
-            img.style.cssText = `mask-image: url(/assets/icons/${c.icon}.svg);
+            img.style.cssText = `mask-image: url(./assets/icons/${c.icon}.svg);
                                 mask-repeat: no-repeat;
                                 mask-origin: content;
                                 mask-size: contain;
-                                -webkit-mask-image: url(../assets/icons/${c.icon}.svg);
+                                -webkit-mask-image: url(./assets/icons/${c.icon}.svg);
                                 -webkit-mask-repeat: no-repeat;
                                 -webkit-mask-origin: content;
                                 -webkit-mask-origin: content-box;
@@ -138,7 +139,7 @@ export class Game extends Memory {
 
         //Asigna cartas mostradas
         playerOfTurn.cardsTurn.push(card);
-        
+
         if (!playerOfTurn.turn) {
 
             //Verifica match
@@ -148,6 +149,9 @@ export class Game extends Memory {
                 playerOfTurn.cardsTurn = [];
                 playerOfTurn.turn = true;
             }
+
+            //Inactiva sección
+            (<HTMLElement>document.querySelector('#game')).classList.add('disabled');
 
             //TimeOut
             setTimeout(() => {
@@ -161,6 +165,9 @@ export class Game extends Memory {
                 //Reasigna turno
                 this._playerTurn = this.nextTurn();
 
+                //Activa sección
+                (<HTMLElement>document.querySelector('#game')).classList.remove('disabled');
+
             }, 1300);
         }
     }
@@ -171,6 +178,8 @@ export class Game extends Memory {
      * @returns Boolean
      */
     matchCardPlayer(cardsTurn: HTMLDivElement[]): boolean {
+
+        if (cardsTurn.length !== 2) return false;
 
         const pcard_1: string = cardsTurn[0].id;
         const pcard_2: string = cardsTurn[1].id;

@@ -38,8 +38,20 @@ export abstract class Memory {
         arr = arr.map(m => [...m]).sort();
         arr = arr.map(m => m.sort(() => Math.random() - 0.5));
 
-        //Trasponemos
-        this._matriz = this.transpose([...this._matriz, ...arr]);
+        // Barajamos / Trasponemos
+        this._matriz = [...arr, ...this.shuffle(this.matriz)];
+        this._matriz = (Math.random() === 0) ? this.transpose(this._matriz) : this._matriz;
+    }
+
+    /**
+     * Barajar
+     * @param arr Array
+     * @returns Array barajado
+     */
+    private shuffle(arr: number[][] = []): number[][] {
+        return arr.map((value, i) => ({ value, sort: Math.floor(Math.random() * (arr.length - i + 1) + i) }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
     }
 
     /**
