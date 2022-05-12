@@ -1,0 +1,88 @@
+//Bootstrap
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+//Iconos Bootstrap
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    --back-face: url('/assets/icons/question-square-fill.svg');
+
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    background: transparent;
+
+    .results-container {
+        top: 0;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+
+        .active{
+            color: red;
+        }
+    }
+
+    .memory-game {
+        align-content: flex-start;
+        width: 640px;
+        height: 640px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        perspective: 1000px;
+        justify-content: center;
+
+        .memory-card {
+            width: calc(12%);
+            //border: solid 1px lightsteelblue;
+            border-radius: 5px;
+            border-bottom: solid 1px rgba(0, 0, 0, .3);
+            border-right: solid 1px rgba(0, 0, 0, .3);
+            box-shadow: -2px -2px 1px rgba(0, 0, 0, .3);
+            height: calc(12%);
+            //margin: 5px;
+            position: relative;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+        }
+
+        .memory-card:active {
+            transform: scale(0.97);
+            transition: transform .2s;
+        }
+
+        .memory-card.flip {
+            pointer-events: none;
+            transform: rotateY(180deg);
+        }
+
+        .front-face,
+        .back-face {
+            width: 100%;
+            height: 100%;
+            padding: 3px;
+            position: absolute;
+            border-radius: 5px;
+            background: #1C7CCC;
+            backface-visibility: hidden;
+        }
+
+        .back-face {
+            cursor: pointer;
+        }
+
+        .front-face {
+            cursor: none;
+            transform: rotateY(180deg);
+        }
+    }
+}
