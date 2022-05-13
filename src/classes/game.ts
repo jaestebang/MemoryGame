@@ -90,16 +90,6 @@ export class Game extends Memory {
             //Imágen Front
             img = document.createElement('img');
             img.className = 'front-face';
-            img.style.cssText = `mask-image: url(./assets/icons/${c.icon}.svg);
-                                mask-repeat: no-repeat;
-                                mask-origin: content;
-                                mask-size: contain;
-                                -webkit-mask-image: url(./assets/icons/${c.icon}.svg);
-                                -webkit-mask-repeat: no-repeat;
-                                -webkit-mask-origin: content;
-                                -webkit-mask-origin: content-box;
-                                -webkit-mask-size: contain;
-                                `;
             mCard.appendChild(img);
 
             //Asignamos evento
@@ -196,16 +186,36 @@ export class Game extends Memory {
      * @param flip True: flip - False: Unflip
      */
     private flipCard(card: HTMLDivElement, flip: boolean): void {
+        const img: HTMLImageElement = <HTMLImageElement>card.querySelector('img.front-face');
+
         if (flip) {
 
             //Asigna CSS / Remueve Evento
             card.classList.add('flip');
             card.removeEventListener('click', this._handleCarOnClick);
+
+            //Obtiene carta de matriz
+            const c = this._cards[parseInt(card.id.split('')[0])][parseInt(card.id.split('')[1;
+
+            //Asocia estilo directo
+            img.style.cssText = `mask-image: url(./assets/icons/${c.icon}.svg);
+            mask-repeat: no-repeat;
+            mask-origin: content;
+            mask-size: contain;
+            -webkit-mask-image: url(./assets/icons/${c.icon}.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-origin: content;
+            -webkit-mask-origin: content-box;
+            -webkit-mask-size: contain;
+            `;
         } else {
 
             //Remueve CSS / Asigna Evento
             card.classList.remove('flip');
             card.addEventListener('click', this._handleCarOnClick);
+
+            //Remueve estilo directo
+            img.style.cssText = ``;
         }
     }
 
