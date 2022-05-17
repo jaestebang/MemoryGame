@@ -158,7 +158,7 @@ export class Game extends Memory {
                 //Activa sección
                 (<HTMLElement>document.querySelector('#game')).classList.remove('disabled');
 
-            }, 1300);
+            }, (match) ? 500 : 1300);
         }
     }
 
