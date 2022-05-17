@@ -13,6 +13,49 @@
 
 <body>
 
+    <!-- Ini Modal de configuración-->
+    <div class="modal fade" tabindex="-1" role="dialog">
+
+        <!--Ini Modal dialog-->
+        <div class="modal-dialog" role="document">
+
+            <!--Ini Modal content-->
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Configuración de Juego</h5></div>
+                <div class="modal-body container">
+                    <div class="row">
+                        <div class="col">Jugadores</div>
+                        <div class="col">Tamaño</div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <select id="players">
+                                <option value="1">1</option>
+                                <option value="2" selected="selected">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="size">
+                                <option value="4">4 x 4</option>
+                                <option value="6" selected="selected">6 x 6</option>
+                                <option value="8">8 x 8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <!--Fin Modal dialog-->
+
+        </div>
+        <!--Ini Modal dialog-->
+
+    </div>
+    <!-- Fin Modal de configuración-->
+
     <!--Scripts principales-->
     <script src="../src/index.ts"></script>
 </body>

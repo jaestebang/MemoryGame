@@ -95,4 +95,12 @@ export abstract class Memory {
     protected geIcon(id: number): string {
         return this._ICONS[id - 1];
     }
+
+    /**
+     * Retorna iconos
+     * @returns _ICONS
+     */
+    protected getIcons(): Array<string>{
+        return this._ICONS;
+    }
 }

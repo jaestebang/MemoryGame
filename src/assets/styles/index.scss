@@ -8,24 +8,28 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    zoom:100%
 }
 
 body {
-
-    --back-face: url('/assets/icons/question-square-fill.svg');
 
     height: 100vh;
     width: 100vw;
     display: block;
     background: transparent;
 
-    .game.disabled{
+    .modal.show {
+        display: flex;
+        background: var(--bs-secondary);
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .game.disabled {
         pointer-events: none;
     }
 
     .results-container {
-        /* top: 0; */
-        /* position: fixed; */
         display: flex;
         flex-direction: column;
         width: 100vw;

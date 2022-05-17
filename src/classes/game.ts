@@ -195,7 +195,7 @@ export class Game extends Memory {
             card.removeEventListener('click', this._handleCarOnClick);
 
             //Obtiene carta de matriz
-            const c = this._cards[parseInt(card.id.split('')[0])][parseInt(card.id.split('')[1;
+            const c = this._cards[parseInt(card.id.split('')[0])][parseInt(card.id.split('')[1])];
 
             //Asocia estilo directo
             img.style.cssText = `mask-image: url(./assets/icons/${c.icon}.svg);
