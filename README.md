@@ -2,11 +2,79 @@
 
 Juego de memoria realizado en TypeScript.
 
-Instalar dependencias y ejecutar con parcel-bundler.
+### Implementaciones de construcción
+
+- Patrón de diseño singleton
+    ```JavaScript
+    /**
+    * Class SingletonIdPlayer: Patron de diseñon Singleton
+        */
+    export class SingletonIdPlayer {
+
+        //Variables privadas
+        private static instance: SingletonIdPlayer;
+        public iterator: number = 0;
+
+        /**
+        * Constructor privado para impedir creaciones de clase
+            */
+        private constructor() {
+        }
+
+        /**
+        * Retorna una única instancia
+            * @returns Instancia
+            */
+        public static getInstance(): SingletonIdPlayer {
+            if (!SingletonIdPlayer.instance)
+                SingletonIdPlayer.instance = new SingletonIdPlayer();
+            
+            //Incrementa identificador
+            SingletonIdPlayer.instance.iterator += 1;
+            
+            return SingletonIdPlayer.instance;
+        }
+    }
+    ```
+- Generadores
+    ```JavaScript
+    /**
+     * Generador de números aleatorios 
+     * @param array Array números enteros
+     */
+    private *randomGenerator(array: Array<number>): Generator<number> {
+
+        //Tamaño del array
+        let i = array.length;
+
+        //Decrementamos valor
+        while (i--) {
+
+            //Asignamos y detenemos instrucción
+            yield array.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
+        }
+    }    
+    ```
+- Herencia
+- Clases abstractas
+- Interfaces
+- Tipos
+    ```JavaScript
+    /**
+    * Tipos de tamaño permitidos
+    */
+    export type SizeMemory = 4 | 6 | 8;    
+    ```
+- Service Worker (PWA): El juego funciona sin conexión a internet
+
+
+## Instalación
+
+Instalar dependencias y ejecutar con parcel
 
 ```cmd
 npm i
-npm dev
+npm build-dev
 ```
 
 ## Instanciar juego
