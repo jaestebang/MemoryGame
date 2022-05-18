@@ -232,9 +232,26 @@ export class Game extends Memory {
     }
 
     /**
+     * Precarga de iconos
+     * Deprecado. Se implementa ServiceWorker
+     */
+    private preLoad() {
+        super.getIcons().forEach(icon => {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = `./assets/icons/${icon}.svg`;
+            link.type = 'image/svg+xml';
+            link.as = 'image';
+            document.head.appendChild(link);
+        });
+    }
+
+    /**
      * Inicia / Reinicia juego
      */
     public initGame() {
+
+        //this.preLoad();
 
         //Reinica players
         this._players.forEach(p => p.reset());

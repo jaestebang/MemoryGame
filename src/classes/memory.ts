@@ -3,15 +3,16 @@
  */
 export type SizeMemory = 4 | 6 | 8;
 
+export const ICONS: Array<string> = ['alarm', 'controller', 'wrench', 'umbrella', 'telephone', 'suit-heart-fill', 'star-fill', 'scissors', 'printer', 'pen', 'megaphone-fill', 'hospital-fill', 'dice-6', 'box', 'bicycle', 'tv-fill', 'trash', 'truck', 'emoji-angry-fill', 'emoji-dizzy-fill', 'emoji-expressionless-fill', 'emoji-frown-fill', 'emoji-heart-eyes-fill', 'emoji-kiss-fill', 'emoji-laughing-fill', 'emoji-neutral-fill', 'emoji-smile-fill', 'emoji-smile-upside-down-fill', 'emoji-sunglasses-fill', 'emoji-wink-fill', 'person-lines-fill', 'person-plus-fill'];
+
 /**
  * Clase Memory
  */
 export abstract class Memory {
 
     //Variables privadas
-    private _matriz: number[][] = [];
-
-    private readonly _ICONS: Array<string> = ['alarm', 'controller', 'wrench', 'umbrella', 'telephone', 'suit-heart-fill', 'star-fill', 'scissors', 'printer', 'pen', 'megaphone-fill', 'hospital-fill', 'dice-6', 'box', 'bicycle', 'tv-fill', 'trash', 'truck', 'emoji-angry-fill', 'emoji-dizzy-fill', 'emoji-expressionless-fill', 'emoji-frown-fill', 'emoji-heart-eyes-fill', 'emoji-kiss-fill', 'emoji-laughing-fill', 'emoji-neutral-fill', 'emoji-smile-fill', 'emoji-smile-upside-down-fill', 'emoji-sunglasses-fill', 'emoji-wink-fill', 'person-lines-fill', 'person-plus-fill'];
+    private _matriz: number[][] = [];    
+    private _ICONS: Array<string> = ICONS;
 
     /**
      * Constructor de matriz cuadrada

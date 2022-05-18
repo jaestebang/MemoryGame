@@ -57,7 +57,3 @@ btnSave.onclick = () => {
 
 //Show modal
 modalShow(true);
-
-
-
-
