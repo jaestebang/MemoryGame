@@ -185,7 +185,7 @@ export class Game extends Memory {
      * @param card Card
      * @param flip True: flip - False: Unflip
      */
-    private flipCard(card: HTMLDivElement, flip: boolean): void {
+    private async flipCard(card: HTMLDivElement, flip: boolean): Promise<void> {
         const img: HTMLImageElement = <HTMLImageElement>card.querySelector('img.front-face');
 
         if (flip) {
@@ -196,18 +196,8 @@ export class Game extends Memory {
 
             //Obtiene carta de matriz
             const c = this._cards[parseInt(card.id.split('')[0])][parseInt(card.id.split('')[1])];
+            img.style.cssText = `background:url('./assets/icons/${c.icon}.svg') no-repeat;`
 
-            //Asocia estilo directo
-            img.style.cssText = `mask-image: url(./assets/icons/${c.icon}.svg);
-            mask-repeat: no-repeat;
-            mask-origin: content;
-            mask-size: contain;
-            -webkit-mask-image: url(./assets/icons/${c.icon}.svg);
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-origin: content;
-            -webkit-mask-origin: content-box;
-            -webkit-mask-size: contain;
-            `;
         } else {
 
             //Remueve CSS / Asigna Evento

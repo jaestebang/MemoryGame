@@ -3,7 +3,12 @@
  */
 export type SizeMemory = 4 | 6 | 8;
 
-export const ICONS: Array<string> = ['alarm', 'controller', 'wrench', 'umbrella', 'telephone', 'suit-heart-fill', 'star-fill', 'scissors', 'printer', 'pen', 'megaphone-fill', 'hospital-fill', 'dice-6', 'box', 'bicycle', 'tv-fill', 'trash', 'truck', 'emoji-angry-fill', 'emoji-dizzy-fill', 'emoji-expressionless-fill', 'emoji-frown-fill', 'emoji-heart-eyes-fill', 'emoji-kiss-fill', 'emoji-laughing-fill', 'emoji-neutral-fill', 'emoji-smile-fill', 'emoji-smile-upside-down-fill', 'emoji-sunglasses-fill', 'emoji-wink-fill', 'person-lines-fill', 'person-plus-fill'];
+export const ICONS: Array<string> = [
+    'axe-icon-11271', 'bible-icon-11416', 'black-widow-icon-11496', 'bloody-knife-icon-11426', 'bomb-icon-11286', 'candlestick-icon-11306', 'candy-cane-icon-11446', 'christian-cross-icon-11336', 'church-building-icon-11321', 'crystal-ball-icon-11456', 'devil-s-pitchfork-icon-11341', 'dracula-icon-11346', 'elixir-potion-icon-11351', 'eyeball-concoction-icon-11421', 'fish-skeleton-icon-11366', 'frankenstein-s-monster-icon-11371', 'gallows-icon-11376', 'gate-icon-11381', 'ghost-icon-11386', 'gooey-eyeball-icon-11356', 'graveyard-icon-11396', 'guillotine-icon-11401', 'halloween-candy-icon-11311', 'jack-o-lantern-icon-11476', 'jason-mask-11411', 'lantern-icon-11431', 'last-day-calendar-icon-11301', 'leaf-icon-11436', 'magic-wand-icon-11451', 'monastery-icon-11326', 'moonlit-bat-icon-11276', 'mummy-icon-11466', 'owl-icon-11471', 'rip-tombstone-icon-11391', 'scarecrow-icon-11481', 'scary-skull-icon-11491', 'scythe-icon-11486', 'spiderweb-icon-11501', 'vampire-coffin-icon-11331', 'vampire-teeth-icon-11441', 'voodoo-icon-11511', 'witch-hat-icon-11406', 'witch-s-brew-and-cauldron-icon-11316', 'witch-s-broom-icon-11296', 'zombie-brains-icon-11516', 'zombie-finger-icon-11361'
+]
+    .map((value, i, arr) => ({ value, sort: Math.floor((Math.random() + 0.5) * (arr.length - i + 1) + i) }))
+    .sort((a, b) => b.sort - a.sort)
+    .map(({ value }) => value);
 
 /**
  * Clase Memory
@@ -11,7 +16,7 @@ export const ICONS: Array<string> = ['alarm', 'controller', 'wrench', 'umbrella'
 export abstract class Memory {
 
     //Variables privadas
-    private _matriz: number[][] = [];    
+    private _matriz: number[][] = [];
     private _ICONS: Array<string> = ICONS;
 
     /**
@@ -101,7 +106,7 @@ export abstract class Memory {
      * Retorna iconos
      * @returns _ICONS
      */
-    protected getIcons(): Array<string>{
+    protected getIcons(): Array<string> {
         return this._ICONS;
     }
 }
