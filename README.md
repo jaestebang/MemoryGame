@@ -8,7 +8,7 @@ Juego de memoria realizado en TypeScript.
     ```JavaScript
     /**
     * Class SingletonIdPlayer: Patron de diseñon Singleton
-        */
+    */
     export class SingletonIdPlayer {
 
         //Variables privadas
@@ -17,14 +17,14 @@ Juego de memoria realizado en TypeScript.
 
         /**
         * Constructor privado para impedir creaciones de clase
-            */
+        */
         private constructor() {
         }
 
         /**
         * Retorna una única instancia
-            * @returns Instancia
-            */
+        * @returns Instancia
+        */
         public static getInstance(): SingletonIdPlayer {
             if (!SingletonIdPlayer.instance)
                 SingletonIdPlayer.instance = new SingletonIdPlayer();
